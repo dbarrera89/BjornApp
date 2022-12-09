@@ -1,4 +1,5 @@
 ﻿using BjornApp.Vistas;
+using BjornApp.Vistas.TutorialIntro;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace BjornApp
         {
             InitializeComponent();
 
-            MainPage = new Presentacion();
+            MainPage = new Intro1();
         }
 
         protected override void OnStart()

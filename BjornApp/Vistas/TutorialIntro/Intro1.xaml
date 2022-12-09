@@ -1,12 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vistas="clr-namespace:BjornApp.Vistas.TutorialIntro"
              x:Class="BjornApp.Vistas.TutorialIntro.Intro1">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <Grid BackgroundColor="#201F25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <CarouselView Grid.Row="0" IndicatorView="Indicador">
+            <CarouselView.ItemsSource>
+                <x:Array Type="{x:Type ContentView}">
+                    <vistas:Vista1/>
+                    <vistas:Vista2/>
+                    <vistas:Vista3/>
+                </x:Array>
+            </CarouselView.ItemsSource>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView Content="{Binding .}"/>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <IndicatorView x:Name="Indicador" IndicatorColor="White" SelectedIndicatorColor="#FFD340" Grid.ColumnSpan="2"/>
+            <Button Text="Saltar" Grid.Column="1"/>
+        </Grid>
+    </Grid>
 </ContentPage>

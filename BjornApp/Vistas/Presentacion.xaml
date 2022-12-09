@@ -2,7 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BjornApp.Vistas.Presentacion">
-    <StackLayout VerticalOptions="CenterAndExpand">
-        <Image Source="bjorn1.png"/>
-    </StackLayout>
+    <Grid BackgroundColor="#151515">
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Image Source="https://i.ibb.co/71mtkdL/icon-Bjorn.png" HeightRequest="150"/>
+            <Label Text="PublicityApp" TextColor="White" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
+            <Label Text="From" TextColor="#F8F9FA" HorizontalOptions="Center" HeightRequest="100"/>
+            <Label Text="DAVID BARRERA" TextColor="#EC4827" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label Text="JULIAN LOPEZ" TextColor="#EC4827" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
+        </StackLayout>
+    </Grid>
 </ContentPage>

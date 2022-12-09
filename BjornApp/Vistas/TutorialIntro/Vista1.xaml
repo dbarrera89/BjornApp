@@ -4,7 +4,7 @@
              x:Class="BjornApp.Vistas.TutorialIntro.Vista1">
   <ContentView.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
+          <Label Text="Hello Xamarin.Forms!" TextColor="White"/>
       </StackLayout>
   </ContentView.Content>
 </ContentView>
