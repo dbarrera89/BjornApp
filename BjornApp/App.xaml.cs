@@ -12,7 +12,7 @@ namespace BjornApp
         {
             InitializeComponent();
 
-            MainPage = new Presentacion();
+            MainPage = new Login();
         }
 
         protected override void OnStart()
