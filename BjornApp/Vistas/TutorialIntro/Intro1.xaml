@@ -28,7 +28,7 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             <IndicatorView x:Name="Indicador" IndicatorColor="White" SelectedIndicatorColor="#FFD340" Grid.ColumnSpan="2"/>
-            <Button Text="Saltar" Grid.Column="1"/>
+            <Button Text="Saltar" Grid.Column="1" BackgroundColor="#FFD340" TextColor="Black" FontAttributes="Bold" Margin="0,5,5,5" CornerRadius="20" x:Name="btnSaltar"/>
         </Grid>
     </Grid>
 </ContentPage>

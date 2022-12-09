@@ -2,9 +2,14 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BjornApp.Vistas.TutorialIntro.Vista1">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" TextColor="White"/>
-      </StackLayout>
-  </ContentView.Content>
+    <Grid BackgroundColor="#201F25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Image Source="https://i.ibb.co/rcmTGG6/v1.png" Grid.Row="0" Margin="10,0,10,0"/>
+        <Label Text="Reactivate" Grid.Row="1" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" VerticalOptions="Center" FontSize="20"/>
+        <Label Text="MUNDO" Grid.Row="2" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="60"/>
+    </Grid>
 </ContentView>
