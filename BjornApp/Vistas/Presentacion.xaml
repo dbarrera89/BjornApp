@@ -4,7 +4,7 @@
              x:Class="BjornApp.Vistas.Presentacion">
     <Grid BackgroundColor="#151515">
         <StackLayout VerticalOptions="CenterAndExpand">
-            <Image Source="https://i.ibb.co/71mtkdL/icon-Bjorn.png" HeightRequest="150"/>
+            <Image Source="icon-Bjorn.png" HeightRequest="150" x:Name="logo"/>
             <Label Text="PublicityApp" TextColor="White" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
             <Label Text="From" TextColor="#F8F9FA" HorizontalOptions="Center" HeightRequest="100"/>
             <Label Text="DAVID BARRERA" TextColor="#EC4827" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>

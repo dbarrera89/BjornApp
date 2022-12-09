@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BjornApp.Vistas.TutorialIntro;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,14 @@ namespace BjornApp.Vistas
         public Presentacion()
         {
             InitializeComponent();
+            Animacion();
+        }
+
+        public async Task Animacion()
+        {
+            logo.Opacity = 0;
+            await logo.FadeTo(1, 2000);
+            App.Current.MainPage = new Intro1();
         }
     }
 }
