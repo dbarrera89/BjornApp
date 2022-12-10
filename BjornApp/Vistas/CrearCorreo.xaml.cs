@@ -39,7 +39,7 @@ namespace BjornApp.Vistas
                         await IniciarSesion();
 						await ObtenerIdUsuario();
 						//TODO: Pendiente habilitar método, esperar a solucionar problema con Firebase Storage
-						await SubirFotoStorage();
+						//await SubirFotoStorage();
 						await InsertarNegocios();
                     }
 
