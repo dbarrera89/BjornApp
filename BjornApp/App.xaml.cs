@@ -12,6 +12,7 @@ namespace BjornApp
         {
             InitializeComponent();
 
+
             MainPage = new NavigationPage(new Login());
         }
 

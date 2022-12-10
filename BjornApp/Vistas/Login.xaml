@@ -22,11 +22,11 @@
             <StackLayout Grid.Row="1">
                 <StackLayout Orientation="Horizontal">
                     <Image WidthRequest="25" Source="https://i.ibb.co/3CTF5Tw/corazon-sonrisa.png"/>
-                    <Entry Placeholder="Correo" x:Name="UserLogin" PlaceholderColor="#7F7F7F" TextColor="White" FontAttributes="Bold" WidthRequest="300"/>
+                    <Entry Placeholder="Correo" x:Name="txtLogin" PlaceholderColor="#7F7F7F" TextColor="White" FontAttributes="Bold" WidthRequest="300"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Image WidthRequest="25" Source="https://i.ibb.co/d4LSWpP/corona.png"/>
-                    <Entry Placeholder="Contraseña" x:Name="UserPassword" PlaceholderColor="#7F7F7F" TextColor="White" FontAttributes="Bold" WidthRequest="300"/>
+                    <Entry Placeholder="Contraseña" x:Name="txtPassword" PlaceholderColor="#7F7F7F" TextColor="White" FontAttributes="Bold" WidthRequest="300"/>
                 </StackLayout>
                 <Button Text="Iniciar" TextColor="Black" BackgroundColor="#FFD33F" FontSize="16" FontAttributes="Bold" CornerRadius="30"
                         x:Name="btnIniciar" Clicked="btnIniciar_Clicked"/>
