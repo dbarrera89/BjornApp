@@ -1,5 +1,7 @@
 ﻿using BjornApp.Modelo;
 using BjornApp.VistasModelo;
+using Firebase.Auth;
+using Newtonsoft.Json;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
@@ -7,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,7 +27,7 @@ namespace BjornApp.Vistas
 		string idUsuario;
 		string rutaFoto;
 
-        private void btnCrearCuenta_Clicked(object sender, EventArgs e)
+        private async Task btnCrearCuenta_Clicked(object sender, EventArgs e)
         {
 			if (!string.IsNullOrEmpty(txtNombres.Text))
 			{
@@ -33,12 +35,12 @@ namespace BjornApp.Vistas
 				{
                     if (!string.IsNullOrEmpty(txtContrasena.Text))
 					{
-                        CrearCuenta();
-                        IniciarSesion();
-						ObtenerIdUsuario();
+                        await CrearCuenta();
+                        await IniciarSesion();
+						await ObtenerIdUsuario();
 						//TODO: Pendiente habilitar método, esperar a solucionar problema con Firebase Storage
 						//SubirFotoStorage();
-						InsertarNegocios();
+						await InsertarNegocios();
                     }
 
                 }
@@ -47,34 +49,43 @@ namespace BjornApp.Vistas
 			
         }
 
-		private void CrearCuenta()
+		private async Task CrearCuenta()
 		{
 			var funcion = new VMcrearcuenta();
-			funcion.CrearCuenta(txtCorreo.Text, txtContrasena.Text);
+			await funcion.CrearCuenta(txtCorreo.Text, txtContrasena.Text);
 		}
 
-		private void IniciarSesion()
+		private async Task IniciarSesion()
 		{
 			var funcion = new VMcrearcuenta();
-			funcion.ValidarCuenta(txtCorreo.Text, txtContrasena.Text);
+			await funcion.ValidarCuenta(txtCorreo.Text, txtContrasena.Text);
 
 		}
 
-		private async void ObtenerIdUsuario()
+		private async Task ObtenerIdUsuario()
 		{
-			
-			var funcion = new VMcrearcuenta();
-            idUsuario = await funcion.ObtenerIdUsuario();
+			try
+			{
+                var authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constantes.WebapiFirebase));
+                var guararId = JsonConvert.DeserializeObject<FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
+                var refrescarContenido = await authProvider.RefreshAuthAsync(guararId);
+                Preferences.Set("MyFirebaseRefreshToken", JsonConvert.SerializeObject(refrescarContenido));
+                idUsuario = guararId.User.LocalId;
+            }
+			catch  (Exception)
+			{
+				await DisplayAlert("Alerta", "Sesion expirada", "OK");
+			}
 
         }
 
-		private async void SubirFotoStorage()
+		private async Task SubirFotoStorage()
 		{
 			var funcion = new VMnegocios();
 			rutaFoto = await funcion.SubirImagenStorage(file.GetStream(), idUsuario);
 		}
 
-		private async void InsertarNegocios()
+		private async Task InsertarNegocios()
 		{
 			var funcion = new VMnegocios();
 			var parametros = new Mnegocios();
@@ -90,6 +101,7 @@ namespace BjornApp.Vistas
 			parametros.prioridad= "0";
 			
 			await funcion.InsertarNegocios(parametros);
+			await DisplayAlert("Listo", "Registrado", "Ok");
         }
 
         private async void btnSubirFoto_Clicked(object sender, EventArgs e)
