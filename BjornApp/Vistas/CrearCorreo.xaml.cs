@@ -1,4 +1,6 @@
 ﻿using BjornApp.VistasModelo;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +20,27 @@ namespace BjornApp.Vistas
 			InitializeComponent ();
 		}
 
+		MediaFile file;
+
+		string idUsuario;
+
         private void btnCrearCuenta_Clicked(object sender, EventArgs e)
         {
-			CrearCuenta();
+			if (!string.IsNullOrEmpty(txtNombres.Text))
+			{
+				if (!string.IsNullOrEmpty(txtCorreo.Text))
+				{
+                    if (!string.IsNullOrEmpty(txtContrasena.Text))
+					{
+                        CrearCuenta();
+                        IniciarSesion();
+						ObtenerIdUsuario();
+                    }
+
+                }
+
+            }
+			
         }
 
 		private void CrearCuenta()
@@ -28,5 +48,39 @@ namespace BjornApp.Vistas
 			var funcion = new VMcrearcuenta();
 			funcion.CrearCuenta(txtCorreo.Text, txtContrasena.Text);
 		}
+
+		private void IniciarSesion()
+		{
+			var funcion = new VMcrearcuenta();
+			funcion.ValidarCuenta(txtCorreo.Text, txtContrasena.Text);
+
+		}
+
+		private async void ObtenerIdUsuario()
+		{
+			
+			var funcion = new VMcrearcuenta();
+            idUsuario = await funcion.ObtenerIdUsuario();
+
+        }
+
+        private async void btnSubirFoto_Clicked(object sender, EventArgs e)
+        {
+			await CrossMedia.Current.Initialize();
+			try
+			{
+				file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions()
+				{
+					PhotoSize = PhotoSize.Medium
+				});
+				if (file == null)
+					return;
+				fotoPerfil.Source = ImageSource.FromStream(file.GetStream);
+			}
+			catch (Exception ex)
+			{
+				await DisplayAlert("Error", ex.Message, "Ok");
+			}
+        }
     }
 }

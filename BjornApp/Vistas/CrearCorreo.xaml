@@ -19,10 +19,11 @@
         <Image Source="bjorn1.png" Margin="0,20,0,0" Grid.Row="0"/>
         <StackLayout Grid.Row="1" Margin="20" Orientation="Vertical">
             <StackLayout Orientation="Horizontal" HeightRequest="50">
-                <Button Text="Subir Foto" BackgroundColor="#31C3A2" TextColor="White" CornerRadius="10"/>
-                <Image Source="https://i.ibb.co/3hWBtFP/camara-fotografica.png"/>
+                <Button Text="Subir Foto" BackgroundColor="#31C3A2" TextColor="White" CornerRadius="10" 
+                        x:Name="btnSubirFoto" Clicked="btnSubirFoto_Clicked"/>
+                <Image Source="https://i.ibb.co/3hWBtFP/camara-fotografica.png" x:Name="fotoPerfil"/>
             </StackLayout>
-            <Entry TextColor="White" FontAttributes="Bold" Placeholder="Nombres" PlaceholderColor="White"/>
+            <Entry TextColor="White" FontAttributes="Bold" Placeholder="Nombres" PlaceholderColor="White" x:Name="txtNombres"/>
             <Entry TextColor="White" FontAttributes="Bold" Placeholder="Correo" PlaceholderColor="White" x:Name="txtCorreo"/>
             <Entry TextColor="White" FontAttributes="Bold" Placeholder="Contraseña" PlaceholderColor="White" 
                    x:Name="txtContrasena" IsPassword="True"/>

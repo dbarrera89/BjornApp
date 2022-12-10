@@ -11,5 +11,8 @@ namespace BjornApp.VistasModelo
         public static FirebaseClient firebase = new FirebaseClient("https://publicityapp-5d8df-default-rtdb.firebaseio.com/");
 
         public const string WebapiFirebase = "AIzaSyAManFnZTWU6bsrJzbtGcCNXswEJBWIMhg";
+
+        //TOD: Pendiente agregar ruta de Storage
+        public static string storage = "";
     }
 }
