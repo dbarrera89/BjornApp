@@ -25,6 +25,8 @@ namespace BjornApp.VistasModelo
             {
                 var authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constantes.WebapiFirebase));
                 var auth = await authProvider.SignInWithEmailAndPasswordAsync(correo, contrasena);
+                var serializarToken = JsonConvert.SerializeObject(auth);
+                Preferences.Set("MyFirebaseRefreshToken", serializarToken);
                 await App.Current.MainPage.DisplayAlert("Correcto", "Listo", "Ok");
             }
             catch (Exception)

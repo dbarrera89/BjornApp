@@ -21,6 +21,7 @@ namespace BjornApp.Vistas
 		public CrearCorreo ()
 		{
 			InitializeComponent ();
+			CerrarSesion();
 		}
 
 		MediaFile file;
@@ -47,6 +48,12 @@ namespace BjornApp.Vistas
 
             }
 			
+        }
+
+		private void CerrarSesion()
+		{
+			Preferences.Remove("MyFirebaseRefreshToken");
+
         }
 
 		private async Task CrearCuenta()
