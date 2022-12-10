@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BjornApp.VistasModelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,16 @@ namespace BjornApp.Vistas
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void btnCrearCuenta_Clicked(object sender, EventArgs e)
+        {
+			CrearCuenta();
+        }
+
+		private void CrearCuenta()
+		{
+			var funcion = new VMcrearcuenta();
+			funcion.CrearCuenta(txtCorreo.Text, txtContrasena.Text);
+		}
+    }
 }

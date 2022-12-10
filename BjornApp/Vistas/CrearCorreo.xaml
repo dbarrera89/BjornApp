@@ -22,11 +22,13 @@
                 <Button Text="Subir Foto" BackgroundColor="#31C3A2" TextColor="White" CornerRadius="10"/>
                 <Image Source="https://i.ibb.co/3hWBtFP/camara-fotografica.png"/>
             </StackLayout>
-            <Entry TextColor="White" FontAttributes="Bold" Placeholder="Nombre" PlaceholderColor="White"/>
-            <Entry TextColor="White" FontAttributes="Bold" Placeholder="Correo" PlaceholderColor="White"/>
-            <Entry TextColor="White" FontAttributes="Bold" Placeholder="Contraseña" PlaceholderColor="White"/>
-            <Button Text="Crear Cuenta" BackgroundColor="White" TextColor="Black" CornerRadius="10" HorizontalOptions="Center" 
-                    WidthRequest="250" FontAttributes="Bold"/>
+            <Entry TextColor="White" FontAttributes="Bold" Placeholder="Nombres" PlaceholderColor="White"/>
+            <Entry TextColor="White" FontAttributes="Bold" Placeholder="Correo" PlaceholderColor="White" x:Name="txtCorreo"/>
+            <Entry TextColor="White" FontAttributes="Bold" Placeholder="Contraseña" PlaceholderColor="White" 
+                   x:Name="txtContrasena" IsPassword="True"/>
+            <Button Text="Crear Cuenta" BackgroundColor="White" TextColor="Black" CornerRadius="10" 
+                    HorizontalOptions="Center" 
+                    WidthRequest="250" FontAttributes="Bold" x:Name="btnCrearCuenta" Clicked="btnCrearCuenta_Clicked"/>
         </StackLayout>
     </Grid>
 </ContentPage>
