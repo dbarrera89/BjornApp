@@ -9,6 +9,7 @@
             <Label Text="From" TextColor="#F8F9FA" HorizontalOptions="Center" HeightRequest="100"/>
             <Label Text="DAVID BARRERA" TextColor="#EC4827" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
             <Label Text="JULIAN LOPEZ" TextColor="#EC4827" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label Text="JOSE HERRERA" TextColor="#EC4827" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
         </StackLayout>
     </Grid>
 </ContentPage>

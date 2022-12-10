@@ -35,7 +35,7 @@
             </StackLayout>
             <StackLayout HorizontalOptions="Center" Grid.Row="2" Orientation="Horizontal">
                 <Label Text="Una app de " HorizontalTextAlignment="Center" TextColor="#404040"/>
-                <Label Text="Dbarrera - Jlopez - ITM" HorizontalTextAlignment="Center" TextColor="#FFD340"/>
+                <Label Text="DBarrera - JLopez - JHerrera - ITM" HorizontalTextAlignment="Center" TextColor="#FFD340"/>
             </StackLayout>
         </Grid>
     </Grid>
