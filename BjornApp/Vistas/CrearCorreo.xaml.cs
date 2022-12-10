@@ -1,4 +1,5 @@
-﻿using BjornApp.VistasModelo;
+﻿using BjornApp.Modelo;
+using BjornApp.VistasModelo;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
@@ -21,8 +22,8 @@ namespace BjornApp.Vistas
 		}
 
 		MediaFile file;
-
 		string idUsuario;
+		string rutaFoto;
 
         private void btnCrearCuenta_Clicked(object sender, EventArgs e)
         {
@@ -35,6 +36,9 @@ namespace BjornApp.Vistas
                         CrearCuenta();
                         IniciarSesion();
 						ObtenerIdUsuario();
+						//TODO: Pendiente habilitar método, esperar a solucionar problema con Firebase Storage
+						//SubirFotoStorage();
+						InsertarNegocios();
                     }
 
                 }
@@ -62,6 +66,30 @@ namespace BjornApp.Vistas
 			var funcion = new VMcrearcuenta();
             idUsuario = await funcion.ObtenerIdUsuario();
 
+        }
+
+		private async void SubirFotoStorage()
+		{
+			var funcion = new VMnegocios();
+			rutaFoto = await funcion.SubirImagenStorage(file.GetStream(), idUsuario);
+		}
+
+		private async void InsertarNegocios()
+		{
+			var funcion = new VMnegocios();
+			var parametros = new Mnegocios();
+
+			parametros.idusuario = idUsuario;
+			parametros.idcategoria = "-";
+			parametros.celular = "-";
+			parametros.descripcion= "-";
+			parametros.direccion= "-";
+			parametros.foto= rutaFoto;
+			parametros.nombre = txtNombres.Text;
+			parametros.idlocalidad = "-";
+			parametros.prioridad= "0";
+			
+			await funcion.InsertarNegocios(parametros);
         }
 
         private async void btnSubirFoto_Clicked(object sender, EventArgs e)
