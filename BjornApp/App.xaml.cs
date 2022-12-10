@@ -12,7 +12,7 @@ namespace BjornApp
         {
             InitializeComponent();
 
-            MainPage = new Login();
+            MainPage = new CrearCorreo();
         }
 
         protected override void OnStart()
