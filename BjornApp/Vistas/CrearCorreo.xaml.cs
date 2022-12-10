@@ -27,7 +27,7 @@ namespace BjornApp.Vistas
 		string idUsuario;
 		string rutaFoto;
 
-        private async Task btnCrearCuenta_Clicked(object sender, EventArgs e)
+        private async void btnCrearCuenta_Clicked(object sender, EventArgs e)
         {
 			if (!string.IsNullOrEmpty(txtNombres.Text))
 			{
