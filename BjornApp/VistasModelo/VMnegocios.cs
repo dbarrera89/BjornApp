@@ -23,7 +23,7 @@ namespace BjornApp.VistasModelo
                     direccion = parametros.direccion,
                     foto = parametros.foto,
                     nombre = parametros.nombre,
-                    idusuario = parametros.idusuario,
+                    idusuario= parametros.idusuario,
                     idlocalidad = parametros.idlocalidad,
                     prioridad = parametros.prioridad
                 });

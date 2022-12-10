@@ -39,7 +39,7 @@ namespace BjornApp.Vistas
                         await IniciarSesion();
 						await ObtenerIdUsuario();
 						//TODO: Pendiente habilitar método, esperar a solucionar problema con Firebase Storage
-						//SubirFotoStorage();
+						await SubirFotoStorage();
 						await InsertarNegocios();
                     }
 
@@ -70,7 +70,7 @@ namespace BjornApp.Vistas
                 var guararId = JsonConvert.DeserializeObject<FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
                 var refrescarContenido = await authProvider.RefreshAuthAsync(guararId);
                 Preferences.Set("MyFirebaseRefreshToken", JsonConvert.SerializeObject(refrescarContenido));
-                idUsuario = guararId.User.LocalId;
+                idUsuario = guararId.User.LocalId;				
             }
 			catch  (Exception)
 			{

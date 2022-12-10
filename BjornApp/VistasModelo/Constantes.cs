@@ -12,7 +12,7 @@ namespace BjornApp.VistasModelo
 
         public const string WebapiFirebase = "AIzaSyAManFnZTWU6bsrJzbtGcCNXswEJBWIMhg";
 
-        //TOD: Pendiente agregar ruta de Storage
-        public static string storage = "";
+        //TODO: Pendiente realizar pruebas con storage
+        public static string storage = "publicityapp-5d8df.appspot.com";
     }
 }
