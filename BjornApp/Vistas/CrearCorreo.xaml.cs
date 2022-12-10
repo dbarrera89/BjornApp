@@ -6,6 +6,7 @@ using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace BjornApp.Vistas
 
         private async void btnCrearCuenta_Clicked(object sender, EventArgs e)
         {
+
 			if (!string.IsNullOrEmpty(txtNombres.Text))
 			{
 				if (!string.IsNullOrEmpty(txtCorreo.Text))
@@ -42,10 +44,22 @@ namespace BjornApp.Vistas
 						//TODO: Pendiente habilitar método, esperar a solucionar problema con Firebase Storage
 						//await SubirFotoStorage();
 						await InsertarNegocios();
-                    }
+					}
+					else
+					{
+						await DisplayAlert("Alerta", "Agregue una contraseña", "OK");
+					}
 
+				}
+				else
+				{
+                    await DisplayAlert("Alerta", "Agregue un correo", "OK");
                 }
 
+			}
+			else
+			{
+                await DisplayAlert("Alerta", "Agregue un nombre", "OK");
             }
 			
         }
@@ -108,11 +122,13 @@ namespace BjornApp.Vistas
 			parametros.prioridad= "0";
 			
 			await funcion.InsertarNegocios(parametros);
-			await DisplayAlert("Listo", "Registrado", "Ok");
+			await DisplayAlert("Listo", "Vuelva a abrir la aplicación", "Ok");
+			Process.GetCurrentProcess().CloseMainWindow();
         }
 
         private async void btnSubirFoto_Clicked(object sender, EventArgs e)
         {
+			
 			await CrossMedia.Current.Initialize();
 			try
 			{

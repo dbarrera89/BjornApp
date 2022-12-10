@@ -28,8 +28,10 @@
                     <Image WidthRequest="25" Source="https://i.ibb.co/d4LSWpP/corona.png"/>
                     <Entry Placeholder="Contraseña" x:Name="UserPassword" PlaceholderColor="#7F7F7F" TextColor="White" FontAttributes="Bold" WidthRequest="300"/>
                 </StackLayout>
-                <Button Text="Iniciar" TextColor="Black" BackgroundColor="#FFD33F" FontSize="16" FontAttributes="Bold" CornerRadius="30"/>
-                <Button Text="Crear Cuenta" TextColor="White" BackgroundColor="Transparent" FontSize="16" FontAttributes="Bold" TextTransform="None"/>
+                <Button Text="Iniciar" TextColor="Black" BackgroundColor="#FFD33F" FontSize="16" FontAttributes="Bold" CornerRadius="30"
+                        x:Name="btnIniciar" Clicked="btnIniciar_Clicked"/>
+                <Button Text="Crear Cuenta" TextColor="White" BackgroundColor="Transparent" FontSize="16" FontAttributes="Bold" TextTransform="None"
+                        x:Name="btnCrearCuenta" Clicked="btnCrearCuenta_Clicked"/>
             </StackLayout>
             <StackLayout HorizontalOptions="Center" Grid.Row="2" Orientation="Horizontal">
                 <Label Text="Una app de " HorizontalTextAlignment="Center" TextColor="#404040"/>

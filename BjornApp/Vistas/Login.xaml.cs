@@ -16,5 +16,15 @@ namespace BjornApp.Vistas
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private async void btnCrearCuenta_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CrearCorreo());
+        }
+
+        private void btnIniciar_Clicked(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
